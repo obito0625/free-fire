@@ -1,0 +1,678 @@
+:root {
+  --bg-dark: #090d16;
+  --bg-card: rgba(18, 25, 41, 0.88);
+  --border: rgba(255, 255, 255, 0.1);
+  --primary: #ff9900;
+  --primary-hover: #ffad29;
+  --accent: #ff4500;
+  --text-main: #f8fafc;
+  --text-muted: #94a3b8;
+  --success-bg: rgba(16, 185, 129, 0.15);
+  --success-border: rgba(16, 185, 129, 0.45);
+  --success-text: #6ee7b7;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "Cairo", sans-serif;
+  background-color: var(--bg-dark);
+  color: var(--text-main);
+  min-height: 100vh;
+  line-height: 1.6;
+  overflow-x: hidden;
+  position: relative;
+}
+
+/* توهج الخلفية */
+.bg-glow {
+  position: fixed;
+  width: 420px;
+  height: 420px;
+  border-radius: 50%;
+  filter: blur(130px);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.glow-1 {
+  background: rgba(255, 153, 0, 0.22);
+  top: -120px;
+  right: -100px;
+}
+
+.glow-2 {
+  background: rgba(255, 69, 0, 0.16);
+  bottom: -140px;
+  left: -120px;
+}
+
+.container {
+  width: min(1140px, 92%);
+  margin: 0 auto;
+  position: relative;
+  z-index: 1;
+}
+
+/* الشريط العلوي */
+.navbar {
+  border-bottom: 1px solid var(--border);
+  backdrop-filter: blur(12px);
+  background: rgba(9, 13, 22, 0.7);
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+.nav-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 0;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.brand-badge {
+  width: 42px;
+  height: 42px;
+  border-radius: 12px;
+  background: linear-gradient(135deg, var(--primary), var(--accent));
+  color: #090d16;
+  font-weight: 900;
+  font-size: 1.1rem;
+  display: grid;
+  place-items: center;
+}
+
+.brand-text {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.1;
+}
+
+.brand-text .company {
+  font-size: 0.72rem;
+  letter-spacing: 1.5px;
+  color: var(--primary);
+  font-weight: 700;
+}
+
+.brand-text strong {
+  font-size: 1.1rem;
+  letter-spacing: 0.8px;
+}
+
+.btn-outline {
+  background: transparent;
+  color: var(--text-main);
+  border: 1px solid var(--border);
+  padding: 9px 18px;
+  border-radius: 10px;
+  font-family: inherit;
+  font-weight: 700;
+  cursor: pointer;
+  transition: 0.25s ease;
+}
+
+.btn-outline:hover {
+  border-color: var(--primary);
+  color: var(--primary);
+}
+
+/* القسم الرئيسي */
+.hero {
+  padding: 56px 0 36px;
+}
+
+.hero-grid {
+  display: grid;
+  grid-template-columns: 1.15fr 0.85fr;
+  gap: 36px;
+  align-items: center;
+}
+
+.tag {
+  display: inline-block;
+  background: rgba(255, 153, 0, 0.14);
+  border: 1px solid rgba(255, 153, 0, 0.35);
+  color: var(--primary-hover);
+  padding: 6px 14px;
+  border-radius: 999px;
+  font-size: 0.88rem;
+  font-weight: 700;
+  margin-bottom: 16px;
+}
+
+.hero-info h1 {
+  font-size: clamp(2rem, 4vw, 3.1rem);
+  font-weight: 900;
+  line-height: 1.25;
+  margin-bottom: 16px;
+}
+
+.hero-info h1 span {
+  background: linear-gradient(90deg, var(--primary), #ffd05b);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.subtitle {
+  color: var(--text-muted);
+  font-size: 1.05rem;
+  max-width: 560px;
+  margin-bottom: 28px;
+}
+
+.stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 14px;
+}
+
+.stat-box {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 16px;
+  text-align: center;
+}
+
+.stat-box strong {
+  display: block;
+  font-size: 1.2rem;
+  color: var(--primary);
+}
+
+.stat-box span {
+  font-size: 0.84rem;
+  color: var(--text-muted);
+}
+
+/* بطاقة النموذج */
+.claim-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  padding: 28px;
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.45);
+}
+
+.card-header {
+  margin-bottom: 22px;
+}
+
+.card-header h2 {
+  font-size: 1.35rem;
+  font-weight: 800;
+}
+
+.card-header p {
+  color: var(--text-muted);
+  font-size: 0.9rem;
+}
+
+.input-group {
+  margin-bottom: 16px;
+}
+
+.input-group label {
+  display: block;
+  font-size: 0.9rem;
+  font-weight: 700;
+  margin-bottom: 7px;
+  color: #e2e8f0;
+}
+
+.input-group input,
+.input-group select {
+  width: 100%;
+  padding: 12px 14px;
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  background: rgba(9, 13, 22, 0.85);
+  color: var(--text-main);
+  font-family: inherit;
+  font-size: 0.95rem;
+  outline: none;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.input-group input:focus,
+.input-group select:focus {
+  border-color: var(--primary);
+  box-shadow: 0 0 0 3px rgba(255, 153, 0, 0.18);
+}
+
+/* زر تسجيل الدخول بجوجل في البطاقة */
+.btn-google {
+  width: 100%;
+  margin-top: 8px;
+  padding: 13px 18px;
+  border: none;
+  border-radius: 12px;
+  background: #ffffff;
+  color: #1f1f1f;
+  font-family: inherit;
+  font-size: 1rem;
+  font-weight: 800;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  cursor: pointer;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.25);
+  transition: transform 0.15s ease, background-color 0.2s ease;
+}
+
+.btn-google:hover {
+  background: #f8fafc;
+  transform: translateY(-1px);
+}
+
+/* رسالة الحالة */
+.status-msg {
+  margin-top: 16px;
+  padding: 14px;
+  border-radius: 12px;
+  background: var(--success-bg);
+  border: 1px solid var(--success-border);
+  color: var(--success-text);
+  font-size: 0.9rem;
+}
+
+.status-msg code {
+  background: rgba(0, 0, 0, 0.35);
+  padding: 2px 6px;
+  border-radius: 6px;
+}
+
+/* ===================================================
+   تصميم نافذة Google الاحترافية (Light Material UI)
+   =================================================== */
+.google-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(9, 13, 22, 0.76);
+  backdrop-filter: blur(6px);
+  display: grid;
+  place-items: center;
+  padding: 16px;
+  z-index: 60;
+  animation: fadeIn 0.2s ease;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.google-dialog {
+  width: min(440px, 100%);
+  background: #ffffff;
+  color: #1f1f1f;
+  border-radius: 24px;
+  overflow: hidden;
+  box-shadow: 0 24px 64px rgba(0, 0, 0, 0.45);
+  animation: popUp 0.22s ease;
+}
+
+@keyframes popUp {
+  from {
+    opacity: 0;
+    transform: translateY(12px) scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.google-top-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 22px;
+  border-bottom: 1px solid #e0e3e7;
+  font-size: 0.85rem;
+  color: #444746;
+}
+
+.google-top-brand {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 600;
+}
+
+.google-close-btn {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  border: none;
+  background: transparent;
+  color: #444746;
+  font-size: 1rem;
+  cursor: pointer;
+  display: grid;
+  place-items: center;
+  transition: background 0.2s;
+}
+
+.google-close-btn:hover {
+  background: #f1f3f4;
+}
+
+.google-step {
+  padding: 28px 32px 32px;
+}
+
+.google-dialog-header {
+  text-align: center;
+  margin-bottom: 24px;
+}
+
+.app-mini-badge {
+  width: 44px;
+  height: 44px;
+  margin: 0 auto 14px;
+  border-radius: 12px;
+  background: linear-gradient(135deg, var(--primary), var(--accent));
+  color: #090d16;
+  font-weight: 900;
+  font-size: 1.05rem;
+  display: grid;
+  place-items: center;
+}
+
+.google-wordmark {
+  font-size: 1.55rem;
+  font-weight: 800;
+  letter-spacing: -0.5px;
+  margin-bottom: 8px;
+  direction: ltr;
+}
+
+.g-blue { color: #4285f4; }
+.g-red { color: #ea4335; }
+.g-yellow { color: #fbbc05; }
+.g-green { color: #34a853; }
+
+.google-dialog-header h3 {
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: #1f1f1f;
+  margin-bottom: 4px;
+}
+
+.google-dialog-header p {
+  font-size: 0.94rem;
+  color: #444746;
+}
+
+.app-link {
+  color: #0b57d0;
+  font-weight: 700;
+}
+
+/* قائمة الحسابات */
+.account-list {
+  list-style: none;
+  border-top: 1px solid #e0e3e7;
+  margin-bottom: 20px;
+}
+
+.account-item {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 13px 10px;
+  border: none;
+  border-bottom: 1px solid #e0e3e7;
+  background: transparent;
+  text-align: right;
+  font-family: inherit;
+  cursor: pointer;
+  transition: background-color 0.18s ease;
+}
+
+.account-item:hover {
+  background-color: #f4f7fc;
+}
+
+.avatar {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  font-weight: 800;
+  font-size: 1rem;
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
+}
+
+.avatar-blue {
+  background: #1a73e8;
+  color: #ffffff;
+}
+
+.avatar-green {
+  background: #188038;
+  color: #ffffff;
+}
+
+.avatar-neutral {
+  background: #f1f3f4;
+  color: #444746;
+}
+
+.account-details {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  line-height: 1.35;
+}
+
+.account-details strong {
+  font-size: 0.94rem;
+  color: #1f1f1f;
+}
+
+.account-details span {
+  font-size: 0.82rem;
+  color: #5f6368;
+  direction: ltr;
+  text-align: right;
+}
+
+.account-arrow {
+  color: #5f6368;
+  font-size: 1.2rem;
+}
+
+.google-privacy-note {
+  font-size: 0.8rem;
+  color: #5f6368;
+  line-height: 1.55;
+}
+
+/* شارة الحساب المختار */
+.selected-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 10px;
+  padding: 5px 12px 5px 10px;
+  border-radius: 999px;
+  border: 1px solid #dadce0;
+  background: #ffffff;
+  color: #3c4043;
+  font-family: inherit;
+  font-size: 0.84rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.selected-chip:hover {
+  background: #f8f9fa;
+}
+
+.chip-dot {
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: #1a73e8;
+  color: #ffffff;
+  font-size: 0.75rem;
+  font-weight: 800;
+  display: grid;
+  place-items: center;
+}
+
+/* حقول الإدخال العائمة بأسلوب Google */
+.g-field {
+  position: relative;
+  margin-bottom: 18px;
+}
+
+.g-field input {
+  width: 100%;
+  padding: 15px 14px;
+  border: 1px solid #747775;
+  border-radius: 8px;
+  background: #ffffff;
+  color: #1f1f1f;
+  font-family: inherit;
+  font-size: 0.96rem;
+  outline: none;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.g-field input:focus {
+  border-color: #0b57d0;
+  box-shadow: inset 0 0 0 1px #0b57d0;
+}
+
+.g-field label {
+  position: absolute;
+  right: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: #ffffff;
+  padding: 0 6px;
+  color: #444746;
+  font-size: 0.92rem;
+  pointer-events: none;
+  transition: 0.18s ease;
+}
+
+.g-field input:focus + label,
+.g-field input:not(:placeholder-shown) + label {
+  top: 0;
+  font-size: 0.78rem;
+  color: #0b57d0;
+  font-weight: 700;
+}
+
+.g-checkbox-row {
+  margin-bottom: 24px;
+}
+
+.show-pass-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.86rem;
+  color: #1f1f1f;
+  cursor: pointer;
+  user-select: none;
+}
+
+.show-pass-label input {
+  width: 16px;
+  height: 16px;
+  accent-color: #0b57d0;
+}
+
+.google-dialog-actions {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.g-btn-text {
+  background: transparent;
+  border: none;
+  color: #0b57d0;
+  font-family: inherit;
+  font-size: 0.92rem;
+  font-weight: 700;
+  padding: 10px 14px;
+  border-radius: 999px;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.g-btn-text:hover {
+  background: #eef4fe;
+}
+
+.g-btn-primary {
+  background: #0b57d0;
+  color: #ffffff;
+  border: none;
+  font-family: inherit;
+  font-size: 0.94rem;
+  font-weight: 700;
+  padding: 10px 26px;
+  border-radius: 999px;
+  cursor: pointer;
+  transition: background 0.2s, box-shadow 0.2s;
+}
+
+.g-btn-primary:hover {
+  background: #0842a0;
+  box-shadow: 0 2px 6px rgba(11, 87, 208, 0.35);
+}
+
+.hidden {
+  display: none !important;
+}
+
+/* التذييل */
+.footer {
+  text-align: center;
+  padding: 28px 0 36px;
+  color: var(--text-muted);
+  font-size: 0.85rem;
+  border-top: 1px solid var(--border);
+  margin-top: 40px;
+}
+
+/* استجابة الشاشات */
+@media (max-width: 860px) {
+  .hero-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .stats {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 480px) {
+  .google-step {
+    padding: 22px 20px 26px;
+  }
+}
